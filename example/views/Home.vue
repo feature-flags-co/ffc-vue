@@ -18,8 +18,8 @@ export default {
           route: "string",
           timeStamp: 1631633649000,
           type: "string",
-          methodName: "string",
-          applicationType: "string",
+          eventName: "string",
+          appType: "string",
         },
       ];
       this.$FfcPlugins.track(data);

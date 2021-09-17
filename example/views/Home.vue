@@ -2,6 +2,9 @@
   <div class="home">
     <button @click="variation">test variation</button>
     <button @click="track" style="margin-left: 5px">test track</button>
+    <button @click="trackCustomEvent" style="margin-left: 5px">
+      test track custom event
+    </button>
   </div>
 </template>
 
@@ -23,6 +26,29 @@ export default {
         },
       ];
       this.$FfcPlugins.track(data);
+    },
+    trackCustomEvent() {
+      const data = [
+        {
+          eventName: "string",
+          customizedProperties: [
+            {
+              name: "age",
+              value: "16",
+            },
+          ],
+        },
+        {
+          eventName: "string1",
+          customizedProperties: [
+            {
+              name: "sex",
+              value: "W",
+            },
+          ],
+        },
+      ];
+      this.$FfcPlugins.trackCustomEvent(data);
     },
   },
 };

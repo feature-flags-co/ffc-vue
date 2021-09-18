@@ -30,51 +30,35 @@ FFCPlugin.initUserInfo({
 })
 ```
 
+## 使用方法
+
+### 在用户登录后传递用户信息给敏捷开关SDK
 
 ```javascript
- export default {
-  data() {
-    return {
-      version: null,
-      variations: ["产品经理版1", "程序员版1", "产品经理版2"],
-    };
-  },
-  methods: {
-    async variation() {
-      // 从敏捷开关服务器获取分配给用户的变量值，并根据业务逻辑执行不同的功能模块
-      const result = await this.$FfcPlugins.variationAsync(
-        "主页---话术版本",
-        "产品经理版1"
-      );
-      this.version = result.variationValue;
-    },
-    track() {
-      const data = [
-        {
-          route: "string",
-          timeStamp: 1631633649000,
-          type: "string",
-          eventName: "string",
-          appType: "string",
-        },
-      ];
-      this.$FfcPlugins.track(data);
-    },
-    async trackCustomEvent() {
-      const data = [
-        {
-          eventName: "开始使用点击事件",
-        },
-      ];
-      //捕捉点击按钮的事件(custom event)
-      const result = await this.$FfcPlugins.trackCustomEventAsync(data);
-      if (result) {
-        alert("事件发送成功");
-      } else {
-        alert("事件发送失败");
-      }
-    },
-  },
-};
+async variation()
+{
+  const result = await this.$FfcPlugins.variationAsync(
+    "主页---话术版本",
+    "产品经理版1"
+  );
+  this.version = result.variationValue;
+}
 ```
 
+### 捕捉点击按钮的事件(custom event)
+
+```javascript
+async trackCustomEvent(){
+  const data = [
+    {
+      eventName: "开始使用点击事件",
+    },
+  ];
+  const result = await this.$FfcPlugins.trackCustomEventAsync(data);
+  if (result) {
+    alert("事件发送成功");
+  } else {
+    alert("事件发送失败");
+  }
+}
+```

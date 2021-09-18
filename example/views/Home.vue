@@ -1,19 +1,36 @@
 <template>
-  <div class="home">
-    <button @click="variation">test variation</button>
-    <button @click="track" style="margin-left: 5px">test track</button>
-    <button @click="trackCustomEvent" style="margin-left: 5px">
-      test track custom event
-    </button>
+  <div>
+    <div class="home">
+      <button @click="variation">test variation</button>
+      <button @click="track" style="margin-left: 5px">test track</button>
+    </div>
+    <div class="container" v-if="variations.includes(version)">
+      <div class="row">
+        <h3>{{ version }}</h3>
+        <a href="#" style="font-size: 32px" @click="trackCustomEvent"
+          >开始使用</a
+        >
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Home",
+  data() {
+    return {
+      version: null,
+      variations: ["产品经理版1", "程序员版1", "产品经理版2"],
+    };
+  },
   methods: {
-    variation() {
-      this.$FfcPlugins.variation("sdk");
+    async variation() {
+      const result = await this.$FfcPlugins.variationAsync(
+        "主页---话术版本",
+        "产品经理版1"
+      );
+      this.version = result.variationValue;
     },
     track() {
       const data = [
@@ -27,29 +44,37 @@ export default {
       ];
       this.$FfcPlugins.track(data);
     },
-    trackCustomEvent() {
+    async trackCustomEvent() {
       const data = [
         {
-          eventName: "string",
-          customizedProperties: [
-            {
-              name: "age",
-              value: "16",
-            },
-          ],
-        },
-        {
-          eventName: "string1",
-          customizedProperties: [
-            {
-              name: "sex",
-              value: "W",
-            },
-          ],
+          eventName: "开始使用点击事件",
         },
       ];
-      this.$FfcPlugins.trackCustomEvent(data);
+      const result = await this.$FfcPlugins.trackCustomEventAsync(data);
+      if (result) {
+        alert("事件发送成功");
+      } else {
+        alert("事件发送失败");
+      }
     },
   },
 };
 </script>
+<style>
+.row {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#version-a {
+  display: none;
+}
+
+#version-b {
+  display: none;
+}
+
+#version-c {
+  display: none;
+}
+</style>

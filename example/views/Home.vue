@@ -4,12 +4,22 @@
       <button @click="variation">test variation</button>
       <button @click="track" style="margin-left: 5px">test track</button>
     </div>
-    <div class="container" v-if="variations.includes(version)">
+    <div class="container" v-if="version === 'version-a'">
       <div class="row">
-        <h3>{{ version }}</h3>
-        <a href="#" style="font-size: 32px" @click="trackCustomEvent"
-          >开始使用</a
-        >
+        <h3>产品经理版1</h3>
+        <a href="#" style="font-size: 32px">开始使用</a>
+      </div>
+    </div>
+    <div class="container" v-if="version === 'version-b'">
+      <div class="row">
+        <h3>程序员版1</h3>
+        <a href="#" style="font-size: 32px">开始使用</a>
+      </div>
+    </div>
+    <div class="container" v-if="version === 'version-c'">
+      <div class="row">
+        <h3>产品经理版2</h3>
+        <a href="#" style="font-size: 32px">开始使用</a>
       </div>
     </div>
   </div>
@@ -30,7 +40,16 @@ export default {
         "主页---话术版本",
         "产品经理版1"
       );
-      this.version = result.variationValue;
+      switch (result.variationValue) {
+        case "产品经理版1":
+          return (this.version = "version-a");
+        case "程序员版1":
+          return (this.version = "version-b");
+        case "产品经理版2":
+          return (this.version = "version-c");
+        default:
+          throw new Error("result not match");
+      }
     },
     track() {
       const data = [

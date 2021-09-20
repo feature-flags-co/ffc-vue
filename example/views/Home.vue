@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     async variation() {
-      const result = await this.$FfcPlugins.variationAsync(
+      const result = await this.$FfcPlugin.variationAsync(
         "主页---话术版本",
         "产品经理版1"
       );
@@ -61,7 +61,7 @@ export default {
           appType: "string",
         },
       ];
-      this.$FfcPlugins.track(data);
+      this.$FfcPlugin.track(data);
     },
     async trackCustomEvent() {
       const data = [
@@ -69,7 +69,7 @@ export default {
           eventName: "开始使用点击事件",
         },
       ];
-      const result = await this.$FfcPlugins.trackCustomEventAsync(data);
+      const result = await this.$FfcPlugin.trackCustomEventAsync(data);
       if (result) {
         alert("事件发送成功");
       } else {

@@ -2,7 +2,7 @@ import { FFCJsClient } from "ffc-js-client-sdk";
 
 const FfcPlugin = {
   install: (app) => {
-    app.prototype.$FfcPlugins = FFCJsClient;
+    app.prototype.$FfcPlugin = FFCJsClient;
   },
   initialize(options) {
     FFCJsClient.initialize(options.environmentSecret);

@@ -1,6 +1,6 @@
 {
-  "name": "ffc-vue",
-  "version": "0.1.0",
+  "name": "ffc-vue-sdk",
+  "version": "0.1.1",
   "main": "dist/ffcvue.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",

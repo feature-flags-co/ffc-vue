@@ -1,4 +1,4 @@
-# ffc-vue
+# ffc-vue-sdk
 
 The official SDK for vuejs
 
@@ -7,7 +7,7 @@ The official SDK for vuejs
 ### 使用npm安装指令
 
 ```
-npm install ffc-vue --save
+npm install ffc-vue-sdk --save
 ```
 
 ### 在目标项目中引入源代码

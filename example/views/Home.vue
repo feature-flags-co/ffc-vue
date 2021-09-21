@@ -7,19 +7,25 @@
     <div class="container" v-if="version === 'version-a'">
       <div class="row">
         <h3>产品经理版1</h3>
-        <a href="#" style="font-size: 32px">开始使用</a>
+        <a @click="trackCustomEvent" href="#" style="font-size: 32px"
+          >开始使用</a
+        >
       </div>
     </div>
     <div class="container" v-if="version === 'version-b'">
       <div class="row">
         <h3>程序员版1</h3>
-        <a href="#" style="font-size: 32px">开始使用</a>
+        <a @click="trackCustomEvent" href="#" style="font-size: 32px"
+          >开始使用</a
+        >
       </div>
     </div>
     <div class="container" v-if="version === 'version-c'">
       <div class="row">
         <h3>产品经理版2</h3>
-        <a href="#" style="font-size: 32px">开始使用</a>
+        <a @click="trackCustomEvent" href="#" style="font-size: 32px"
+          >开始使用</a
+        >
       </div>
     </div>
   </div>

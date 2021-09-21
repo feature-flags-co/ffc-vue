@@ -9,6 +9,8 @@ FFCPlugin.initialize({
     "YThmLWRmZjUtNCUyMDIxMDkxNzA3NTYyMV9fMl9fMjJfXzExNl9fZGVmYXVsdF82NTM3Mg==",
 });
 
+FFCPlugin.initialize({ environmentSecret: "" });
+
 // 初始化用户信息，通常这一步会在登录后被调用
 FFCPlugin.initUserInfo({
   userName: "sdk-sample-js-1252",

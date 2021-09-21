@@ -1,11 +1,11 @@
-# ffc-vue
+# ffc-vue-sdk
 
 The official SDK for vuejs
 
 # 安装
 
 ```
-npm install ffc-vue --save
+npm install ffc-vue-sdk --save
 ```
 
 # 使用

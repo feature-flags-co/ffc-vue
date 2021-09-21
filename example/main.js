@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import FFCPlugin from "../src/plugins";
+import FFCPlugin from "../src";
 
 // 初始化sdk，传入环境Secret Key和用户信息
 FFCPlugin.initialize({

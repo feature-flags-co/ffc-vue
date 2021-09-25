@@ -1,5 +1,5 @@
 import FfcPlugin from "./plugins";
-import { FFCJsClient } from "ffc-js-client-sdk";
+import { FFCJsClient } from "ffc-js-client-sdk/esm";
 
 const install = function (Vue) {
   // 判断是否安装

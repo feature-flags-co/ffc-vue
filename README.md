@@ -12,6 +12,10 @@ npm install ffc-vue-sdk --save
 
 ### 在目标项目中引入源代码
 
+```
+import FFCPlugin from "ffc-vue-sdk";
+```
+
 在根目录下打开example文件夹，参考main.js和Home.vue的调用方法即可
 
 ## Demo
